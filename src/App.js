@@ -40,8 +40,17 @@ class App extends Component{
 
   handleToggle = (id) => {
     const { todos } = this.state;
-    
-  }
+    const index = todos.findIndex(todo => todo.id === id);
+    const selected = todos[index];
+    const nextTodos = [...todos];
+    nextTodes[index] = {
+      ...selected,
+      checked: !selected.checked
+    };
+    this.setState({
+      todos: nextTodes
+    });
+    }
 
   render(){
     const { input, todos } = this.state;
